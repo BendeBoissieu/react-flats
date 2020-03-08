@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import GoogleMapReact from 'google-map-react';
 
-import flats from './flats.js'
+import flats from '../../data/flats.js'
 
 const AnyReactComponent = ({ text }) => {
   return(
