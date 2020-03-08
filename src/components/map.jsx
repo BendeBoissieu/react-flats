@@ -1,9 +1,8 @@
 import React, {Component} from 'react';
 import GoogleMapReact from 'google-map-react';
+import Flat from './flat'
 
-import flats from '../../data/flats.js'
-
-const AnyReactComponent = ({ text }) => {
+const Marker = ({ text }) => {
   return(
      <div>{text}</div>
   );
@@ -19,22 +18,18 @@ class SimpleMap extends Component {
     zoom: 11
   };
 
-  coordFlats = () => {
-    return this.props.flats.map(flat => (<div>test</div>))
-  }
   render() {
     return (
       // Important! Always set the container height explicitly
       <div style={{ height: '100vh', width: '100%' }}>
         <GoogleMapReact
-          bootstrapURLKeys={{ key: 'AIzaSyAWPSyyfjb0RX_YMsw5YyZRLmMxpourVUo' }}
+          bootstrapURLKeys={{ key: 'test' }}
           defaultCenter={this.props.center}
           defaultZoom={this.props.zoom}
         >
-          {this.coordFlats()}
-          <flats
-            lat={48.88184}
-            lng={2.343371}
+          <Marker
+            lat={this.props.selectedFlat.lat}
+            lng={this.props.selectedFlat.lng}
             text="My Marker"
           />
         </GoogleMapReact>
@@ -44,13 +39,3 @@ class SimpleMap extends Component {
 }
 
 export default SimpleMap;
-
-
-// const Hello = (props) => {
-//   return (
-//     <div className = "container">
-//       Hello, Romain
-//       {name}
-//     </div>
-//   );
-// };
